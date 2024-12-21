@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <!-- SEO -->
+<meta name="description" content="Bull Island Boards offers the best surf lessons and rentals in Clontarf, Dublin. Join us for an unforgettable surfing experience!">
+<meta name="keywords" content="surf lessons, surfboard rentals, Bull Island, Dublin, surfing">
+<meta name="author" content="Bull Island Boards">
+
+    <link rel="stylesheet" href="BullIslandBoardsHome.css">
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        #weather {
+            font-family: Arial, sans-serif;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            max-width: 400px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Ribbon -->
+    <div class="top-ribbon">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="surfboardrentals.html">Surfboard Rentals</a></li>
+                    <li>
+                        <a href="#">Surf Lessons</a>
+                        <ul class="dropdown">
+                            <li><a href="privatelessons.html">Private</a></li>
+                            <li><a href="grouplessons.html">Group</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">More</a>
+                        <ul class="dropdown">
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: url('https://www.hawaiitours.com/wp-content/uploads/2022/07/surflessonshawaii-vip-private-surf-group-slide-guides.jpg') no-repeat center center/cover;">
+        <h1>About Us</h1>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content">
+        <div class="content-box">
+            <h2>Welcome to Bull Island Boards</h2>
+            <p>
+                At Bull Island Boards, we're passionate about sharing the joy of surfing with everyone. 
+                Whether you're a seasoned surfer or a first-timer, our team is here to provide everything 
+                you need for a memorable experience. 
+            </p>
+        </div>
+
+        <!-- Weather Section -->
+        <div id="weather">
+            <p>Loading weather data for Bull Island...</p>
+        </div>
+    </section>
+
+    <script>
+        const weatherApiKey = "923aa84c8983f7f14c2400f7aaeed371"; // Replace with your OpenWeatherMap API key
+        const lat = 53.3626; // Latitude of Bull Island
+        const lon = -6.2118; // Longitude of Bull Island
+        const units = "metric"; // For Celsius
+
+        async function fetchWeather() {
+            try {
+                const response = await fetch(
+                    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${weatherApiKey}`
+                );
+                const data = await response.json();
+                displayWeather(data);
+            } catch (error) {
+                console.error("Error fetching weather data:", error);
+                document.getElementById("weather").innerHTML = "<p>Unable to load weather data.</p>";
+            }
+        }
+
+        function displayWeather(data) {
+            const weatherDiv = document.getElementById("weather");
+            weatherDiv.innerHTML = `
+                <h2>Current Weather</h2>
+                <p><strong>Location:</strong> Bull Island, Dublin</p>
+                <p><strong>Temperature:</strong> ${data.main.temp}°C</p>
+                <p><strong>Condition:</strong> ${data.weather[0].description}</p>
+                <p><strong>Wind Speed:</strong> ${data.wind.speed} m/s</p>
+            `;
+        }
+
+        fetchWeather();
+    </script>
+</body>
+</html>
+
+        

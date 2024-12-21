@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bull Island Boards</title>
+    <!-- SEO -->
+<meta name="description" content="Bull Island Boards offers the best surf lessons and rentals in Clontarf, Dublin. Join us for an unforgettable surfing experience!">
+<meta name="keywords" content="surf lessons, surfboard rentals, Bull Island, Dublin, surfing">
+<meta name="author" content="Bull Island Boards">
+
+    <link rel="stylesheet" href="BullIslandBoardsHome.css">
+</head>
+<body>
+    <header>
+        <!-- Top Ribbon Navigation -->
+        <div class="top-ribbon">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="surfboardrentals.html">Surfboard Rentals</a></li>
+                    <li>
+                        <a href="#">Surf Lessons</a>
+                        <ul class="dropdown">
+                            <li><a href="privatelessons.html">Private</a></li>
+                            <li><a href="grouplessons.html">Group</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">More</a>
+                        <ul class="dropdown">
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+
+       <!-- Hero Section -->
+<header>
+    <div class="hero" style="background: url('https://i.imgur.com/F7YLqN0.jpg') no-repeat center center/cover;">
+        <div class="hero-content">
+            <h1>Bull Island Boards</h1>
+            <p>Surf Lessons and Rentals in Clontarf, Dublin</p>
+            <a href="contact.html" class="cta-button">Book Surf Lesson</a>
+        </div>
+    </div>
+</header>
+
+
+    <main>
+        <!-- Services Section -->
+        <section class="services">
+            <h2>Our Surf Lessons</h2>
+
+            <!-- Private Lesson Box -->
+            <div class="service-box">
+                <img src="https://tygurneysurfschool.com/wp-content/uploads/2015/08/Ty-Gurney-Surf-School-Surf-Lessons-Private-Joey-High-Five-350x245.jpg" alt="Private Surf Lesson">
+                <h3>Private Lesson</h3>
+                <p>Personalised one-on-one surfing guidance for all levels.</p>
+                <a href="privatelessons.html" class="service-button">Learn More</a>
+            </div>
+
+            <!-- Group Lesson Box -->
+            <div class="service-box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT4QziqqkQCAvkVbRKh3-4k_DfUEybvQ8ggg&s.jpg" alt="Group Surf Lesson">
+                <h3>Group Lesson</h3>
+                <p>Enjoy a fun and social way to learn surfing in a group setting.</p>
+                <a href="grouplessons.html" class="service-button">Learn More</a>
+            </div>
+        </section>
+
+        <!-- Photo & Video Section -->
+        <section class="photo-video">
+            <h2>Photo & Video Options</h2>
+
+            <!-- Photographer Option -->
+            <div class="photo-video-box">
+                <img src="https://northshorebeachboyz.com/wp-content/uploads/2019/12/IMG_1911.jpg" alt="Professional Photographer">
+                <h3>Professional Photographer</h3>
+                <p>Capture your surfing moments with a professional photographer.</p>
+                <p>€50 per hour</p>
+                <p>Book in shop</p>
+            </div>
+
+            <!-- Drone Option -->
+            <div class="photo-video-box">
+                <img src="http://www.theinertia.com/wp-content/uploads/2021/06/image00004.jpeg" alt="Drone Photography">
+                <h3>Drone Photography</h3>
+                <p>Get stunning aerial footage of your surf sessions with a drone.</p>
+                <p>€75 per hour</p>
+                <p>Book in shop</p>
+            </div>
+        </section>
+<section class="photo-video">
+    <h2>Photo & Video Options</h2>
+
+    <!-- Embedded Video -->
+    <div class="video-example">
+        <h3>Drone Footage Example</h3>
+        <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.youtube.com/embed/fjCrLPL1YJk" 
+            title="Previous Drone Footage"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+    </div>
+</section>
+
+
+        <!-- Customer Reviews Section -->
+        <section class="reviews">
+            <h2>What Our Customers Say</h2>
+            <div id="review-box">
+                <p id="review-text">"Amazing surfing experience! Highly recommend!"</p>
+                <span id="review-author">- John Doe</span>
+            </div>
+            <button id="prev-review" class="review-button">Previous</button>
+            <button id="next-review" class="review-button">Next</button>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Contact Us: info@bullislandboards.com | +353 123 4567</p>
+        <p>&copy; 2024 Bull Island Boards</p>
+    </footer>
+
+    <!-- JavaScript for Cycling Reviews -->
+    <script>
+    // Array of reviews
+    const reviews = [
+        {
+            text: "Amazing surfing experience! Highly recommend!",
+            author: "- James Kavanagh"
+        },
+        {
+            text: "The best surf lessons I've ever had!",
+            author: "- Sean Byrne"
+        },
+        {
+            text: "Beautiful location and excellent rental service. Will be back!",
+            author: "- Eimear Adamson"
+        },
+        {
+            text: "Learned to surf in just a day. Wonderful team!",
+            author: "- Nessa Smith"
+        }
+    ];
+
+    let currentReviewIndex = 0;
+
+    // DOM Elements
+    const reviewText = document.getElementById("review-text");
+    const reviewAuthor = document.getElementById("review-author");
+    const prevButton = document.getElementById("prev-review");
+    const nextButton = document.getElementById("next-review");
+
+    // Function to update the review display
+    function updateReview(index) {
+        reviewText.textContent = reviews[index].text;
+        reviewAuthor.textContent = reviews[index].author;
+    }
+
+    // Event Listeners for buttons
+    prevButton.addEventListener("click", () => {
+        currentReviewIndex = (currentReviewIndex - 1 + reviews.length) % reviews.length;
+        updateReview(currentReviewIndex);
+        resetAutoSlide(); // Reset the timer
+    });
+
+    nextButton.addEventListener("click", () => {
+        currentReviewIndex = (currentReviewIndex + 1) % reviews.length;
+        updateReview(currentReviewIndex);
+        resetAutoSlide(); // Reset the timer
+    });
+
+    // Auto-slide functionality
+    function autoSlide() {
+        currentReviewIndex = (currentReviewIndex + 1) % reviews.length;
+        updateReview(currentReviewIndex);
+    }
+
+    let autoSlideInterval = setInterval(autoSlide, 3000); // Change review every 3 seconds
+
+    // Reset auto-slide timer when user interacts with the buttons
+    function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(autoSlide, 3000);
+    }
+
+    // Initialize with the first review
+    updateReview(currentReviewIndex);
+</script>
+
+</body>
+</html>
+
+

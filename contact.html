@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <!-- SEO -->
+<meta name="description" content="Bull Island Boards offers the best surf lessons and rentals in Clontarf, Dublin. Join us for an unforgettable surfing experience!">
+<meta name="keywords" content="surf lessons, surfboard rentals, Bull Island, Dublin, surfing">
+<meta name="author" content="Bull Island Boards">
+
+    <link rel="stylesheet" href="BullIslandBoardsHome.css">
+    <style>
+        /* Contact Form Styling */
+        #contact-form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #contact-form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        #contact-form input,
+        #contact-form textarea,
+        #contact-form select,
+        #contact-form button {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        #contact-form textarea {
+            resize: vertical;
+        }
+
+        .checkbox-group label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        #contact-form button {
+            background-color: #0492C2;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #contact-form button:hover {
+            background-color: #FE6900;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Ribbon -->
+    <div class="top-ribbon">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="surfboardrentals.html">Surfboard Rentals</a></li>
+                <li>
+                    <a href="#">Surf Lessons</a>
+                    <ul class="dropdown">
+                        <li><a href="privatelessons.html">Private</a></li>
+                        <li><a href="grouplessons.html">Group</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">More</a>
+                    <ul class="dropdown">
+                        <li><a href="contactus.html">Contact Us</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Contact Form Section -->
+    <section class="content">
+        <div id="contact-form">
+            <h2>Get in Touch</h2>
+            <form id="contactUsForm" action="submit_form.php" method="POST" enctype="multipart/form-data">
+                <!-- Name -->
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required>
+
+                <!-- Email -->
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your email address" required>
+
+                <!-- Phone Number -->
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+
+                <!-- Preferred Contact Method -->
+                <label for="contact-method">Preferred Contact Method</label>
+                <select id="contact-method" name="contact_method" required>
+                    <option value="">Please select</option>
+                    <option value="email">Email</option>
+                    <option value="phone">Phone</option>
+                </select>
+
+                <!-- Services Interested In -->
+                <label>Services Interested In</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="services[]" value="Surfboard Rentals"> Surfboard Rentals</label>
+                    <label><input type="checkbox" name="services[]" value="Private Lessons"> Private Lessons</label>
+                    <label><input type="checkbox" name="services[]" value="Group Lessons"> Group Lessons</label>
+                    <label><input type="checkbox" name="services[]" value="Other"> Other</label>
+                </div>
+
+                <!-- Message -->
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Your message here" required></textarea>
+
+                <!-- File Upload -->
+                <label for="file-upload">Attach a File (Optional)</label>
+                <input type="file" id="file-upload" name="file_upload" accept=".jpg,.png,.pdf,.docx">
+
+                <!-- Submit Button -->
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // JavaScript Validation
+        document.getElementById("contactUsForm").addEventListener("submit", function(event) {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            if (!name || !email || !message) {
+                alert("Please fill out all required fields.");
+                event.preventDefault(); // Prevent form submission
+            }
+        });
+    </script>
+</body>
+</html>
